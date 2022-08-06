@@ -34,9 +34,12 @@ public class FraudDetectionJob {
 
 		StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-    // DataStream<Transaction> transactions = env
-      // .addSource(new TransactionSource())
-      // .name("transactions");
+    DataStream<Transaction> transactions = env
+      .addSource(new TransactionSource())
+      .name("transactions");
+
+    System.out.println("create transactions");
+    System.out.println(transactions);
 
     // DataStream<Alert> alerts = transactions
       // .keyBy(Transaction::getAccountId)
