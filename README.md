@@ -38,7 +38,7 @@ tail log/flink-*-taskexecutor-*.out
 ### WebUI for Flink
 
 ```bash
-localhost:8881
+localhost:8081
 ```
 
 ### Stop Flink
@@ -48,26 +48,16 @@ cd <path-to-your-flink-folder>
 ./bin/stop-cluster.sh
 ```
 
-## Generate package
+## Build
 
 ```bash
-mvn archetype:generate \
-    -DarchetypeGroupId=org.apache.flink \
-    -DarchetypeArtifactId=flink-walkthrough-datastream-java \
-    -DarchetypeVersion=1.15.1 \
-    -DgroupId=frauddetection \
-    -DartifactId=frauddetection \
-    -Dversion=0.1 \
-    -Dpackage=spendreport \
-    -DinteractiveMode=false
+./build.sh
 ```
 
 ## Run
 
-### Run Demo
-
 ```bash
-
+./run.sh
 ```
 
 ## Enjoy it~
