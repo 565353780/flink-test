@@ -46,3 +46,4 @@ public class FraudDetector extends KeyedProcessFunction<Long, Transaction, Alert
 		collector.collect(alert);
 	}
 }
+

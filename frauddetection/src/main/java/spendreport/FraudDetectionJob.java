@@ -30,21 +30,26 @@ import org.apache.flink.walkthrough.common.source.TransactionSource;
  */
 public class FraudDetectionJob {
 	public static void main(String[] args) throws Exception {
+    System.out.println("main in");
+
 		StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-		DataStream<Transaction> transactions = env
-			.addSource(new TransactionSource())
-			.name("transactions");
+    // DataStream<Transaction> transactions = env
+      // .addSource(new TransactionSource())
+      // .name("transactions");
 
-		DataStream<Alert> alerts = transactions
-			.keyBy(Transaction::getAccountId)
-			.process(new FraudDetector())
-			.name("fraud-detector");
+    // DataStream<Alert> alerts = transactions
+      // .keyBy(Transaction::getAccountId)
+      // .process(new FraudDetector())
+      // .name("fraud-detector");
 
-		alerts
-			.addSink(new AlertSink())
-			.name("send-alerts");
+    // alerts
+      // .addSink(new AlertSink())
+      // .name("send-alerts");
 
-		env.execute("Fraud Detection");
+		// env.execute("Fraud Detection");
+
+    System.out.println("main out");
 	}
 }
+
