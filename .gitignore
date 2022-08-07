@@ -1,4 +1,5 @@
 # complied
 target
 *.xml
+.idea
 
