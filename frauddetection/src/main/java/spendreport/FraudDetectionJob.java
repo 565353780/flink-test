@@ -56,7 +56,9 @@ public class FraudDetectionJob {
     System.out.println("add sink for alerts");
     System.out.println(alerts);
 
-    // env.execute("Fraud Detection");
+    System.out.println("start execute Fraud Detection");
+    env.execute("Fraud Detection");
+    System.out.println("finish execute Fraud Detection");
 
     System.out.println("main out");
   }
