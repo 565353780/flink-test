@@ -57,7 +57,7 @@ public class FraudDetectionJob {
     System.out.println(alerts);
 
     System.out.println("start execute Fraud Detection");
-    env.execute("Fraud Detection");
+    // env.execute("Fraud Detection");
     System.out.println("finish execute Fraud Detection");
 
     System.out.println("main out");
