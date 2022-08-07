@@ -49,16 +49,12 @@ public class FraudDetectionJob {
     System.out.println("create alerts");
     System.out.println(alerts);
 
-    DataStream<Alert> test = transactions
-      .keyBy(Transaction::getAccountId)
-      .process(new FraudDetector());
+    alerts
+      .addSink(new AlertSink())
+      .name("send-alerts");
 
-    System.out.println("create test");
-    System.out.println(test);
-
-    // alerts
-      // .addSink(new AlertSink())
-      // .name("send-alerts");
+    System.out.println("add sink for alerts");
+    System.out.println(alerts);
 
     // env.execute("Fraud Detection");
 
