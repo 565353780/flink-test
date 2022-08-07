@@ -48,6 +48,8 @@ public class FraudDetector extends KeyedProcessFunction<Long, Transaction, Alert
         "timer-state",
         Types.LONG);
     timerState = getRuntimeContext().getState(timerDescriptor);
+
+    System.out.println("FraudDetector opened!");
   }
 
   @Override
