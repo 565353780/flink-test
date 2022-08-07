@@ -29,10 +29,10 @@ import org.apache.flink.walkthrough.common.source.TransactionSource;
  * Skeleton code for the datastream walkthrough
  */
 public class FraudDetectionJob {
-	public static void main(String[] args) throws Exception {
+  public static void main(String[] args) throws Exception {
     System.out.println("main in");
 
-		StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+    StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
     DataStream<Transaction> transactions = env
       .addSource(new TransactionSource())
@@ -41,18 +41,28 @@ public class FraudDetectionJob {
     System.out.println("create transactions");
     System.out.println(transactions);
 
-    // DataStream<Alert> alerts = transactions
-      // .keyBy(Transaction::getAccountId)
-      // .process(new FraudDetector())
-      // .name("fraud-detector");
+    DataStream<Alert> alerts = transactions
+      .keyBy(Transaction::getAccountId)
+      .process(new FraudDetector())
+      .name("fraud-detector");
+
+    System.out.println("create alerts");
+    System.out.println(alerts);
+
+    DataStream<Alert> test = transactions
+      .keyBy(Transaction::getAccountId)
+      .process(new FraudDetector());
+
+    System.out.println("create test");
+    System.out.println(test);
 
     // alerts
       // .addSink(new AlertSink())
       // .name("send-alerts");
 
-		// env.execute("Fraud Detection");
+    // env.execute("Fraud Detection");
 
     System.out.println("main out");
-	}
+  }
 }
 
