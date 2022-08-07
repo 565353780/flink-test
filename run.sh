@@ -1,2 +1,2 @@
-java ./frauddetection/target/frauddetection-0.1.jar
+java -jar ./frauddetection/target/frauddetection-0.1.jar
 
