@@ -25,14 +25,20 @@ import org.apache.flink.walkthrough.common.entity.Alert;
 import org.apache.flink.walkthrough.common.entity.Transaction;
 import org.apache.flink.walkthrough.common.source.TransactionSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Skeleton code for the datastream walkthrough
  */
 public class FraudDetectionJob {
   public static void main(String[] args) throws Exception {
     System.out.println("main in");
+    System.out.println("start create env");
 
     StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+
+    System.out.println("finish create env");
 
     DataStream<Transaction> transactions = env
       .addSource(new TransactionSource())
